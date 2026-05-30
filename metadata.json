@@ -1,0 +1,8 @@
+{
+  "name": "Balochistan Blood Donor App",
+  "description": "A modern, mobile-first blood donation platform for Balochistan, featuring donor registration, real-time search, and admin management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

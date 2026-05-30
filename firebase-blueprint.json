@@ -1,0 +1,70 @@
+{
+  "entities": {
+    "Donor": {
+      "title": "Donor",
+      "description": "A registered blood donor from Balochistan",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string", "description": "Full name of the donor" },
+        "phoneNumber": { "type": "string", "description": "Primary contact number" },
+        "whatsappNumber": { "type": "string", "description": "Optional WhatsApp number" },
+        "bloodGroup": { "type": "string", "enum": ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"] },
+        "district": { "type": "string" },
+        "age": { "type": "integer" },
+        "lastDonationDate": { "type": "string", "format": "date" },
+        "registeredAt": { "type": "string", "format": "date-time" },
+        "isActive": { "type": "boolean" },
+        "isVerified": { "type": "boolean" }
+      },
+      "required": ["fullName", "phoneNumber", "bloodGroup", "district", "registeredAt", "isActive"]
+    },
+    "EmergencyRequest": {
+      "title": "Emergency Request",
+      "description": "Emergency blood requests shown on the home page",
+      "type": "object",
+      "properties": {
+        "patientName": { "type": "string" },
+        "bloodGroup": { "type": "string", "enum": ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"] },
+        "hospital": { "type": "string" },
+        "district": { "type": "string" },
+        "contactNumber": { "type": "string" },
+        "requiredBy": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "status": { "type": "string", "enum": ["pending", "fulfilled"] }
+      },
+      "required": ["patientName", "bloodGroup", "hospital", "district", "contactNumber", "createdAt", "status"]
+    }
+  },
+  "firestore": {
+    "/donors/{donorId}": {
+      "schema": "Donor",
+      "description": "Public searchable donors"
+    },
+    "/emergency_requests/{requestId}": {
+      "schema": "EmergencyRequest",
+      "description": "Current emergency blood needs"
+    },
+    "/districts/{districtId}": {
+      "schema": {
+        "title": "District",
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "createdAt": { "type": "string", "format": "date-time" }
+        }
+      },
+      "description": "List of available districts"
+    },
+    "/admins/{adminId}": {
+      "schema": {
+        "title": "Admin",
+        "type": "object",
+        "properties": {
+          "email": { "type": "string" },
+          "role": { "type": "string" }
+        }
+      },
+      "description": "Admin access control"
+    }
+  }
+}
