@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'motion/react';
-import { Shield, LogIn, Trash2, Filter, UserX, UserCheck, Search, Users, Plus, X, MapPin, AlertCircle, CheckCircle, Clock } from 'lucide-react';
+import { Shield, LogIn, Trash2, Filter, UserX, UserCheck, Search, Users, Plus, X, MapPin, AlertCircle, CheckCircle, Clock, Mail, MessageSquare } from 'lucide-react';
 import { 
   collection, 
   query, 
@@ -354,6 +354,59 @@ export default function Admin() {
           <LogIn className="w-5 h-5 rotate-180" />
         </button>
       </header>
+
+      {/* Admin Information Section */}
+      <section className="bg-white dark:bg-slate-900 p-6 rounded-[32px] border border-slate-100 dark:border-slate-800 shadow-sm space-y-4">
+        <div>
+          <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-widest flex items-center gap-2">
+            <Shield className="w-4 h-4 text-red-600" />
+            Admin Information & Support
+          </h3>
+          <p className="text-[9px] text-slate-400 dark:text-slate-500 font-extrabold uppercase tracking-widest mt-0.5">
+            Primary Contact Channels for App Support
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          {/* Email Channel */}
+          <a
+            href="mailto:rdadbaloch@gmail.com"
+            className="flex flex-col p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200/60 dark:border-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all text-left space-y-2 group"
+          >
+            <div className="w-8 h-8 bg-rose-50 dark:bg-rose-950/20 text-rose-600 dark:text-rose-400 rounded-xl flex items-center justify-center shrink-0">
+              <Mail className="w-4 h-4" />
+            </div>
+            <div className="min-w-0">
+              <span className="text-[8px] uppercase tracking-wider font-extrabold text-slate-400 dark:text-slate-500 block leading-tight">
+                Support Email
+              </span>
+              <span className="text-[10px] font-black text-slate-800 dark:text-slate-200 block truncate group-hover:text-rose-600 dark:group-hover:text-rose-400">
+                rdadbaloch@gmail.com
+              </span>
+            </div>
+          </a>
+
+          {/* WhatsApp Channel */}
+          <a
+            href="https://wa.me/923342201288"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col p-4 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200/60 dark:border-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all text-left space-y-2 group"
+          >
+            <div className="w-8 h-8 bg-green-50 dark:bg-green-950/20 text-green-600 dark:text-green-450 rounded-xl flex items-center justify-center shrink-0">
+              <MessageSquare className="w-4 h-4" />
+            </div>
+            <div className="min-w-0">
+              <span className="text-[8px] uppercase tracking-wider font-extrabold text-slate-400 dark:text-slate-500 block leading-tight">
+                WhatsApp Admin
+              </span>
+              <span className="text-[10px] font-black text-slate-800 dark:text-slate-200 block group-hover:text-green-600 dark:group-hover:text-green-400">
+                03342201288
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
 
       {/* District Management */}
       <section className="bg-white dark:bg-slate-900 p-6 rounded-[32px] border border-slate-100 dark:border-slate-800 shadow-sm space-y-4">

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { Heart, Info, Mail, Share2, Globe, ShieldCheck } from 'lucide-react';
+import { Heart, Info, Mail, Share2, Globe, ShieldCheck, MessageSquare } from 'lucide-react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 export default function About() {
   const { t } = useTranslation();
@@ -47,16 +48,67 @@ export default function About() {
           </div>
           <span className="text-xs font-bold text-slate-800 dark:text-slate-200">Share App</span>
         </button>
-        <a 
-          href="mailto:contact@balochistanblood.com"
+        <Link 
+          to="/contact"
           className="bg-white dark:bg-slate-900 p-6 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col items-center justify-center gap-2 active:scale-95 transition-transform"
         >
           <div className="w-10 h-10 bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 rounded-xl flex items-center justify-center">
             <Mail className="w-5 h-5" />
           </div>
           <span className="text-xs font-bold text-slate-800 dark:text-slate-200">Contact Us</span>
-        </a>
+        </Link>
       </div>
+
+      {/* Admin Contact Information Section */}
+      <section className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-sm border border-slate-100 dark:border-slate-800 space-y-4">
+        <h3 className="flex items-center gap-2 font-black text-slate-900 dark:text-white text-sm uppercase tracking-tight">
+          <Globe className="w-5 h-5 text-red-600" />
+          Admin & Contact Information
+        </h3>
+        <p className="text-[10px] text-slate-400 uppercase tracking-widest font-black -mt-2">
+          Official Support Line
+        </p>
+
+        <div className="grid gap-3 pt-1">
+          {/* Email Info */}
+          <a 
+            href="mailto:rdadbaloch@gmail.com"
+            className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200/60 dark:border-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all text-left"
+          >
+            <div className="w-9 h-9 bg-rose-50 dark:bg-rose-950/20 text-rose-600 dark:text-rose-400 rounded-xl flex items-center justify-center shrink-0">
+              <Mail className="w-4.5 h-4.5" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <span className="text-[9px] uppercase tracking-wider font-extrabold text-slate-400 dark:text-slate-500 block leading-tight">
+                Contact Email
+              </span>
+              <span className="text-xs font-black text-slate-800 dark:text-slate-200 block truncate">
+                rdadbaloch@gmail.com
+              </span>
+            </div>
+          </a>
+
+          {/* WhatsApp Info */}
+          <a 
+            href="https://wa.me/923342201288"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200/60 dark:border-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all text-left"
+          >
+            <div className="w-9 h-9 bg-green-50 dark:bg-green-950/20 text-green-600 dark:text-green-450 rounded-xl flex items-center justify-center shrink-0">
+              <MessageSquare className="w-4.5 h-4.5" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <span className="text-[9px] uppercase tracking-wider font-extrabold text-slate-400 dark:text-slate-500 block leading-tight">
+                WhatsApp Chat
+              </span>
+              <span className="text-xs font-black text-slate-800 dark:text-slate-200 block">
+                03342201288
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
 
       <section className="bg-slate-900 rounded-3xl p-6 text-white space-y-4 shadow-xl">
         <div className="flex items-center gap-3">
